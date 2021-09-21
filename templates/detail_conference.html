@@ -1,0 +1,77 @@
+{%extends 'main.html' %}{%load static%}
+{% load i18n %}
+
+{%block title%} Résultats {%endblock%}
+
+{%block content%}
+
+ 
+<section class="w-75 m-auto ">
+  <div class="ml-5">
+
+    <h4 class="font-weight-bold text-center">{{conference.nom}}</h4>
+   <p class="fs-6 text fst-italic">{{conference.nom}}. ,{{conference.date}}, {{conference.lieu}}</p>
+
+   </br>
+   <hr>
+
+    <dl class="row">
+      <dt class="col-sm-3">Description:</dt>
+      <dd class="row">
+        <p class="text-font mb-5"> {{conference.description}} </p>
+      </dd>
+  
+      
+      <dt class="col-sm-3">Nom de conférence:</dt>
+      <dd class="col-sm-9 text-font">
+         {{conference.nom}}
+      </dd>
+      <dl class="row">
+      <dt class="col-sm-3">Date de conférence:</dt>
+      <dd class="col-sm-3 text-font">
+        {% language 'fr' %}{{conference.date|date:'d F Y'}}{% endlanguage %}
+      </dd>
+  
+      <dt class="col-sm-3">Lieu de conférence:</dt>
+      <dd class="col-sm-3 text-font">
+        {{conference.lieu}}
+      </dd>
+     </dl>
+      <dt class="col-sm-3">Organisateur:</dt>
+      <dd class="col-sm-9 text-font">
+        {{conference.organisateur}}
+  
+      </dd>
+
+      <dt class="col-sm-3">Chair:</dt>
+      <dd class="col-sm-9 text-font">
+               {{conference.chair}} 
+      </dd>
+
+      <dt class="col-sm-3">Audience:</dt>
+      <dd class="col-sm-9 text-font">
+               {{conference.audience}} 
+      </dd>
+     {%if conference.label != null%}
+      <dt class="col-sm-3">Label:</dt>
+      <dd class="col-sm-9 text-font">
+               {{conference.label}} 
+      </dd>
+     {%endif%}
+     
+      <dt class="col-sm-3">Lien:</dt>
+      <dd class="col-sm-9 text-font">
+          <a class ="text-color text-font" href="{%url 'conference_articles' conference.nom%}"  class="text-white">Consulter les articles de cette conférence</a>
+      
+      </dd>
+     
+      
+      
+    </dl>
+    </div>
+</section>
+
+{%endblock%}
+
+
+

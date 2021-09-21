@@ -1,0 +1,224 @@
+body {
+  background-color: #f3f3f3;
+}
+.container{
+  background-color: #fff;
+}
+
+
+.header{
+    background-image: url('../images/imgacceuil.jpg');
+    background-size: 600px 100px;
+    opacity: 0.8;
+}
+
+.site-heading{
+  color: white;
+  text-align: center;
+  font-style: italic;
+  opacity:1;
+}
+
+
+
+.nav-scroller {
+  position: relative;
+  z-index: 2;
+  height: 2.75rem;
+  overflow-y: hidden;
+}
+
+.mb-0 {
+  color: #2f435e;
+}
+.carousel-caption p{
+  color: #1A3867;
+  font-style: italic;
+  background-color: white;
+  font-size: 20px;
+}
+
+
+.text-white {
+  color: #fff!important;
+  font-style: italic;
+  font-size : 20px;
+}
+.fst-italic {
+  font-style: italic !important;
+ color: #184a73;
+}
+.nav-scroller .nav {
+  display: flex;
+  flex-wrap: nowrap;
+  padding-bottom: 1rem;
+  margin-top: -1px;
+  overflow-x: auto;
+  text-align: center;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+
+.nav-scroller .nav-link {
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+  font-size: .875rem;
+}
+.bg-cherche{
+    background-color:#2f435e;
+  
+}
+
+.text-color{
+  color:blue;
+}
+
+.text-font{
+  font-family:'Times New Roman', Times, serif;
+}
+
+
+#carouselExampleCaptions{
+height: 300px;
+}
+.carousel-item::before{
+background: black;
+opacity: 0.7;
+}
+.carousel-item img{
+height: 300px;
+
+}
+
+
+.carousel-caption{
+bottom:10%;
+padding-left: 20%;
+padding-right: 20%;
+}
+.carousel-caption h5{
+font-size: 50px;
+font-weight:500;
+font-style: italic;
+
+}
+
+.carousel-caption p{
+font-size: 18px;
+top: 2rem;
+}
+
+.recherche-avance{
+max-width: 800px;
+margin:50px auto;
+position: relative;
+box-shadow: 0 10px 30px 0 rgba(0,0,0,0.1);
+padding: 30px;
+
+}
+.recherche-avance .form-title{
+ text-transform: uppercase;
+ text-align: center;
+ letter-spacing: 3px;
+ font-size: 3em;
+ line-height: 48px;
+ padding-bottom: 20px;
+ color: blue;
+ 
+}
+
+.menu 
+{
+  margin-left: 30%;
+  
+}
+
+.recherche-avance label{
+
+left: 20px;
+font-size: 18px;
+line-height: 26px;
+font-weight: 400;
+color:cornflowerblue;
+cursor: text;
+
+}
+
+
+
+/*css de la page detail article*/
+
+
+
+
+
+.floating-label-form-group {
+font-size: 14px;
+position: relative;
+margin-bottom: 0;
+padding-bottom: 0.5em;
+border-bottom: 1px solid #dee2e6;
+}
+
+.floating-label-form-group input,
+.floating-label-form-group textarea {
+font-size: 1.5em;
+position: relative;
+z-index: 1;
+padding: 0;
+resize: none;
+border: none;
+border-radius: 0;
+background: none;
+box-shadow: none !important;
+font-family: 'Lora', 'Times New Roman', serif;
+}
+
+.floating-label-form-group input::-webkit-input-placeholder,
+.floating-label-form-group textarea::-webkit-input-placeholder {
+color: #868e96;
+font-family: 'Lora', 'Times New Roman', serif;
+}
+
+.floating-label-form-group label {
+font-size: 0.85em;
+line-height: 1.764705882em;
+position: relative;
+z-index: 0;
+top: 2em;
+display: block;
+margin: 0;
+transition: top 0.3s ease, opacity 0.3s ease;
+opacity: 0;
+}
+
+.floating-label-form-group .help-block {
+margin: 15px 0;
+}
+
+.floating-label-form-group-with-value label {
+top: 0;
+opacity: 1;
+}
+
+.floating-label-form-group-with-focus label {
+color: #0085A1;
+}
+
+.border{
+  background-color:white;
+}
+
+form .form-group:first-child .floating-label-form-group {
+border-top: 1px solid #dee2e6;
+}
+
+.bg-about {
+  background-color:#B0C4DE !important;
+}
+
+.btn-danger {
+  color: #fff;
+  background-color: #4635dc;
+  border-color: #4635dc;
+}

@@ -1,0 +1,96 @@
+{%extends 'main.html'%}
+{% load i18n %}
+
+
+{%block title%} Recherche {%endblock%}
+
+
+
+{%block content%}
+
+  <!-- forume -->
+  <section class="recherche-avance">
+    <h1 class="form-title">Recherche avancée</h1>
+    {%if erreur%}
+       <div class="alert alert-danger" role="alert">
+          <strong>Veuillez remplir au moins un champ!</strong>
+       </div>
+    {% endif %}
+  <div class="justify-content-center">
+  <form action="{% url 'resultat' %}"method ="get" >
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="inputTitre" class="fw-bold mb-1">Titre:</label>
+          <input type="text" class="form-control mb-3" id="inputTitre" name="titre" placeholder="titre article">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="inputAuteur" class="fw-bold mb-1">Auteur:</label>
+          <input type="text" class="form-control mb-3" id ="inputAuteur" name ="auteur" placeholder="nom de l'auteur">
+       </div>
+    </div>
+      
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="inputDate" class="fw-bold mb-1">Année:</label>
+          
+          <select id="inputYears"class="form-control mb-3" size="1" name="date"></select>
+           
+
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="inputconf"class="fw-bold mb-1">conférence:</label>
+          <select id="inputconf" class="form-control mb-3" size="1" name="conference" >
+            <option value="" >Choisissez...</option>
+            {%for conf in liste_conference %}
+            <option>{{conf.nom}}</option>
+            {%endfor%}
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="inputKey" class="fw-bold mb-1">KeyWords:</label>
+          <input type="text" class="form-control mb-3" id="inputKey"name="mot" placeholder="mot-clé">
+        </div>
+      </div>
+       <br/>
+
+       <button type="submit" class="btn text-white bg-cherche">Rechercher</button>
+   
+  </form>
+</div>
+</section>
+
+{%endblock%}
+
+{%block script%} 
+
+<script type="text/javascript">
+  window.onload = function () {
+      //Reference the DropDownList.
+      var ddlYears = document.getElementById("inputYears");
+
+      //Determine the Current Year.
+      var currentYear = (new Date()).getFullYear();
+      var option = document.createElement("OPTION");
+          option.innerHTML = "Choisissez ...";
+          option.value = "";
+          ddlYears.appendChild(option);
+
+      //Loop and add the Year values to DropDownList.
+      for (var i = 1990; i <= currentYear; i++) {
+          var option = document.createElement("OPTION");
+          option.innerHTML = i;
+          option.value = i;
+          ddlYears.appendChild(option);
+      }
+  };
+</script>
+{%endblock%}

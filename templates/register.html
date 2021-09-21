@@ -1,0 +1,76 @@
+{%extends 'main.html'%}
+{% load i18n %}
+
+
+
+{%block title%} Recherche {%endblock%}
+
+
+
+{%block content%}
+
+  <!-- forume -->
+  <section class="recherche-avance">
+    <h1 class="form-title"> S'inscrire</h1>
+
+    
+  <div class="justify-content-center">
+  <form  action="{% url 'register' %}" method ="post" >
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+    {%if note %}
+    <div class="alert alert-success" role="alert">
+      <strong>L'inscription est faite avec succée</strong>
+    </div>
+    {% endif %}
+      
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          
+          <label for="inputTitre" class="fw-bold mb-1">Nom d'utilisateur : </label> <br>
+          
+          {{form.username}} 
+          <div class="text-danger fw-bold" >{{ form.username.errors }}</div>
+         
+        </div>
+      </div>
+      
+
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          
+          <label for="inputAuteur" class="fw-bold mb-1">Adresse e-mail:</label>
+          
+          {{form.email}}
+          <div class="text-danger fw-bold" >{{ form.email.errors }}</div>
+       </div>
+    </div>
+      
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="inputKey" class="fw-bold mb-1">Mot de passe:</label>
+          
+          {{form.password1}}
+        </div>
+      </div>
+      
+
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          
+          <label for="inputKey" class="fw-bold mb-1">Confirmation du Mot de passe:</label> 
+         {{form.password2}}
+         <div class="text-danger fw-bold" >{{ form.password2.errors }}</div>
+        </div>
+      </div>
+       <br/>
+
+       <button type="submit" class="btn text-white bg-cherche"> S'inscrire</button> 
+   
+  </form>
+</div>
+</section>
+
+{%endblock%}
+
+

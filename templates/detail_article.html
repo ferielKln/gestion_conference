@@ -1,0 +1,87 @@
+{%extends 'main.html'%}{%load static%}
+{% load i18n %}
+
+
+{%block title%} {{article.titre}} {%endblock%}
+
+{%block content%}
+
+
+<section class="w-75 m-auto ">
+  <div class="ml-5">
+  <h4 class="font-weight-bold text-center">{{article.titre}}</h4>
+  <p class="fs-6 text fst-italic">{{article.titre}}. ,{{article.conférence.date}}</p>
+<p>
+  <span class="text-color fw-bold">Par:</span>&nbsp &nbsp 
+  <span class="text-secondary">
+    {%for auteur in auteurs%}
+  {{auteur.nom}} {{auteur.prenom}},&nbsp
+  {%endfor%} 
+  </span>
+</p>
+<i class="fas fa-file fa-2x "></i>
+<button type="button" class="btn bg-cherche m-2">
+  <a href="{{article.fichier.url}}" download="{{article.fichier.url}}" class="text-white">Télécharger</a>
+</button>
+
+<button type="button" class="btn btn-dark m-2">
+  <a href="{% url 'view_pdf' article.pk %}" class="text-white"> Voir</a>
+</button> 
+</br>
+<hr>
+
+  <dl class="row">
+    <dt class="col-sm-3">Résumé:</dt>
+    <dd class="row">
+      <p class="text-font mb-5"> {{article.description}} </p>
+    </dd>
+    
+    <dt class="col-sm-3">Langue:</dt>
+    <dd class="col-sm-9 text-font">
+       {{article.langue}} 
+    </dd>
+    
+    <dt class="col-sm-3">Publiée dans:</dt>
+    <dd class="col-sm-9">
+      <a class ="text-color text-font"href="{% url 'detail_conference' article.conférence %}">{{article.conférence}} conférence</a>
+    </dd>
+    <dl class="row">
+    <dt class="col-sm-3">Date de conférence:</dt>
+    <dd class="col-sm-3 text-font">
+      {% language 'fr' %}{{article.conférence.date|date:'d F Y'}}{% endlanguage %}
+    </dd>
+
+    <dt class="col-sm-3">Lieu de conférence:</dt>
+    <dd class="col-sm-3 text-font">
+      {{article.conférence.lieu}}
+    </dd>
+   </dl>
+    <dt class="col-sm-3">Auteurs:</dt>
+    <dd class="col-sm-9 text-font">
+      {%for auteur in auteurs%}
+             {{auteur.nom}} {{auteur.prenom}},&nbsp
+
+             {%endfor%}
+    </dd>
+
+    <dt class="col-sm-3">Mots Clé</dt>
+    <dd class="col-sm-9 text-font">
+      {%for mot in motsCle%}
+             {{mot}},&nbsp
+
+          {%endfor%}
+    </dd>
+
+
+    <dt class="col-sm-3 ">Date de publication:</dt>
+    <dd class="col-sm-9 text-font"> {% language 'fr' %}{{article.date_publication|date:'d F Y'}}{% endlanguage %}</dd>
+   
+  </dl>
+
+
+</div>
+
+
+</section>
+
+{%endblock%}

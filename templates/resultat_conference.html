@@ -1,0 +1,25 @@
+{%extends 'main.html'%}
+{% load i18n %}
+
+{%block title%} Conférences {%endblock%}
+
+{%block content%}
+    {% if conferences %}
+     
+       <h3 class="text-secondary">La recherche sur: {{lettre}}</h3>
+       <br>
+       <h5 class="text-color text-font ">{{cpt}} résultats trouvés </h5> 
+      <br><br>
+     <ol>
+     {% for i in conferences %}
+        <li><a href="{% url 'detail_conference' i.nom %}">{{i.nom}} {{i.chair}} - {% language 'fr' %}{{i.date|date:'d F Y'}}{% endlanguage %} - {{i.lieu}} </a>
+           
+        </li> 
+       <hr>
+      {% endfor %}
+    </ol>
+  {%else%}
+         <h3 class="text-secondary">Non Résultat Trouvé </h3>
+  {% endif %}
+ 
+{%endblock%}

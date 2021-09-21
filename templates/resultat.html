@@ -1,0 +1,29 @@
+{%extends 'main.html' %}
+
+{%block title%} Résultats {%endblock%}
+
+{%block content%}
+
+ 
+ {% if articles %}
+    <h3 class="text-secondary">La recherche sur: {{recherche}}</h3> 
+    <br>
+    <h5 class="text-color text-font ">{{cpt}} résultats trouvés </h5>
+    <br><br>
+ <ol>
+    {% for i in articles %}
+        <li>  <a href="{% url 'detail_article' i.pk %}">{{i.titre}} </a> 
+            
+           - <a href="{% url 'detail_conference' i.conférence %}">{{i.conférence}}</a> - {{i.conférence.date}}
+
+           
+        </li> 
+       <hr>
+   {% endfor %}
+ </ol>
+{%else%}
+         
+           <h3 class="text-secondary">Non Résultat Trouvé </h3>
+{% endif %}
+
+{%endblock%}

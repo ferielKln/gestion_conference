@@ -1,0 +1,49 @@
+{%extends 'main.html'%} {%load static%}
+{% load i18n %}
+
+{%block title%} Contact {%endblock%}
+
+{%block content%}
+
+<div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+      <p class="text-center">Vous souhaitez nous contacter?</p><p> Remplissez le formulaire ci-dessous pour nous envoyer un message et on vous répondrai dans les plus brefs délais!</p>
+      <br>
+      <br>
+      {%if note %}
+      <div class="alert alert-success" role="alert">
+        <strong>Email envoyé avec succès!</strong>,Merci de nous contacter
+      </div>
+      {% endif %}
+      <form name="sentMessage" id="contactForm" method="post" action="{% url 'contact'%}" >
+        {%csrf_token %}
+        <div class="control-group">
+          <div class="form-group floating-label-form-group controls">
+            <label>Name</label>
+            <input type="text" class="form-control" placeholder="Nom" name="name" required >
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+        <div class="control-group">
+          <div class="form-group floating-label-form-group controls">
+            <label>Email Address</label>
+            <input type="email" class="form-control" placeholder="Adresse E-mail" name="email" required >
+            <p class="help-block text-primary"></p>
+          </div>
+        </div>
+        
+        <div class="control-group">
+          <div class="form-group floating-label-form-group controls">
+            <label>Message</label>
+            <textarea rows="5" class="form-control" placeholder="Message" name="message" required ></textarea>
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+        <br>
+        <div id="success"></div>
+        <button type="submit" class="btn text-white bg-cherche" name="sendMessageButton">Envoyer</button>
+      </form>
+      <br>
+      <br>
+    </div>
+{%endblock%}
